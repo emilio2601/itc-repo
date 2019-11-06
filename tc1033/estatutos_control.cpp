@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <cmath>
 #include <map>
 
 using namespace std;
@@ -41,10 +42,23 @@ void serieAritmetica() {
 void mediaGeometricaArmonica() { 
     vector<double> values;
     double in = 0;
-    do {
+    while(true) {
         cout << "Ingresa valor: ";
         cin >> in;
-    } while(in != 0)
+        if(in == 0) {
+            break;
+        } else {
+            values.push_back(in);
+        }
+    }
+    double product = 1;
+    double recip_sum = 0;
+    for(auto val: values) {
+        product *= val;
+        recip_sum += 1.0 / val;
+    }
+    cout << "La media geométrica es: " << pow(product, 1.0 / values.size()) << endl;
+    cout << "La media armónica es: " << values.size() / recip_sum << endl;
 }
 
 int main() {

@@ -50,7 +50,6 @@ int main() {
             if(prefix_map[letter]) { //prefix is one letter
                 freqs[(uint32_t) letter] += 1;
             } else {
-                line_count--;
                 freqs[(uint32_t) letter | ((uint32_t) file_array[i+1] << 8)] += 1;
             }
             waiting_for_newline = true;
