@@ -10,7 +10,7 @@ vector<string> codes = {"D","PP","CF","A7","CC","B","OY","HC","A6","EC","N","PK"
 vector<string> planes;
 
 int main() {
-    for (int i = 0; i < 100'000'000; i++) {
+    for (int i = 0; i < 100; i++) {
         cout << codes[rand() % 16] + to_string(rand() % 200 + 101) << '\n';
     }
     return 0;

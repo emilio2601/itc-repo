@@ -47,6 +47,7 @@ int main() {
                 line_count++;
             }
         } else {
+            if (letter == ' ') continue;
             if(prefix_map[letter]) { //prefix is one letter
                 freqs[(uint32_t) letter] += 1;
             } else {

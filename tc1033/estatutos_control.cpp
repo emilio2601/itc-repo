@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <vector>
 #include <cmath>
@@ -16,13 +17,17 @@ void conversionCelsiusFahrenheit() {
     cout << "Incremento entre valores: ";
     cin >> delta;
 
-    cout << endl << "Conversión de grados Celsius a Fahrenheit" << endl;
-    cout << "Celsius   Fahrenheit" << endl;
+    if (inicial < 0 || iters > 10'000 || delta < 2 || delta > 10){
+        cout << endl << "Error: revisa tus parámetros" << endl;
+    } else {
+        cout << endl << "Conversión de grados Celsius a Fahrenheit" << endl;
+        cout << "Fahrenheit  Celsius" << endl;
 
-    for (size_t i = 0; i < iters; i++) {
-        double tempFahrenheit = (9.0/5.0 * inicial) + 32;
-        cout << tempFahrenheit << "      " << inicial << endl;
-        inicial += delta;
+        for (size_t i = 0; i < iters; i++) {
+            double tempFahrenheit = (9.0/5.0 * inicial) + 32;
+            cout << setw(10) << tempFahrenheit << "  " << inicial << endl;
+            inicial += delta;
+        }
     }
 
     cout << endl;
@@ -42,10 +47,10 @@ void serieAritmetica() {
 void mediaGeometricaArmonica() { 
     vector<double> values;
     double in = 0;
-    while(true) {
+    while (true) {
         cout << "Ingresa valor: ";
         cin >> in;
-        if(in == 0) {
+        if (in == 0) {
             break;
         } else {
             values.push_back(in);
@@ -53,7 +58,7 @@ void mediaGeometricaArmonica() {
     }
     double product = 1;
     double recip_sum = 0;
-    for(auto val: values) {
+    for (auto val: values) {
         product *= val;
         recip_sum += 1.0 / val;
     }
@@ -64,7 +69,7 @@ void mediaGeometricaArmonica() {
 int main() {
     int status = -1;
 
-    while(status != 0) {
+    while (status != 0) {
         cout << "1) Conversión de Celsius a Fahrenheit" << endl;
         cout << "2) Calcular serie aritmética" << endl;
         cout << "3) Calcular media geométrica y armónica" << endl;
